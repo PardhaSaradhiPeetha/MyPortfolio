@@ -1,0 +1,512 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  color: rgb(85, 85, 85);
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(85, 85, 85);
+}
+
+.navbar {
+  /* flex height of complete body */
+  height: 4rem;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  z-index: 1000;
+  position: fixed;
+  border:2px thin black;
+  background-color: aliceblue;
+}
+
+.logo {
+  font-size: 2rem;
+  cursor: default;
+}
+
+.navlinks {
+  font-size: 1.2rem;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.navlinks a {
+  color: black;
+}
+
+.navlinks a:hover {
+  color: rgba(0, 0, 0, 0.521);
+  text-decoration: underline;
+  text-underline-offset: 0.6rem;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
+.menubar {
+  display: none;
+}
+
+/* Common Section CSS */
+section {
+  margin-top: 4rem;
+  position: relative;
+  width: 100%;
+  flex: 0 0 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.section-text {
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-text {
+  position: absolute;
+  top: 10px;
+}
+
+.section-text .text-p1 {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* Profile Section TODO:*/
+
+.profile-section-text {
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  backdrop-filter: blur(5px);
+  background-color: white;
+  border-top: 1px thin;
+  border-radius: 30px;
+  padding: 50px;
+  box-shadow: 3px 2px 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section-text #text-p2 {
+  color: cadetblue;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.profile .profile-pic1 {
+  border-radius: 100%;
+  height: 25rem;
+  width: 25rem;
+}
+
+.btn-container {
+  padding: 10px;
+}
+
+.btn-container .btn-one,
+.btn-two {
+  width: 8rem;
+  padding: 15px;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 0.1rem solid black;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.btn-container .btn-one {
+  color: black;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-container .btn-two {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.btn-container .btn-one:hover {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.profile .profile-section-text .social-media a {
+  font-size: 40px;
+  color: none;
+}
+
+.profile .profile-section-text .social-media a img {
+  height: 45px;
+  width: 45px;
+  margin: 5px;
+}
+
+/* ABOUT SECTION */
+.about {
+  min-height: auto;
+}
+
+.about-container {
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.about .profile-pic2 {
+  height: 300px;
+  width: 300px;
+  background-color: rgb(160, 158, 158);
+  border-radius: 30px;
+}
+
+.about-right-box {
+  width: 700px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-info {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.info-box {
+  width: 20rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+  border: 2px solid rgb(139, 137, 137);
+  border-radius: 20px;
+}
+
+.about-paragraph {
+  padding: 24px;
+  text-align: justify;
+}
+
+/* Skills and Experience */
+
+.skill-experience {
+  height: auto;
+  overflow: hidden;
+}
+
+.skill-experience .cards-container {
+  overflow-y: hidden;
+}
+
+.timeline {
+  background-color: rgb(135, 134, 134);
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  border-radius: 10px;
+  height: 5px;
+  width:300px;
+}
+
+.timeline-item .time-dot {
+  position: absolute;
+  top: 72px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  z-index: 10;
+  margin-left: 150px;
+  background-color: black;
+  padding: 10px;
+}
+
+.timeline-item .card {
+  margin-top: 120px;
+}
+
+.timeline-item .card div {
+  text-align: left;
+  background: #e5e7eb;
+  font-size: 60px;
+  padding: 0.5rem;
+  padding-left: 2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.cards-container {
+  width: 100%;
+  margin: 10px;
+  padding: 20px;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.card {
+  flex-shrink: 0;
+  width: 300px;
+  height: 400px;
+  margin-right: 20px;
+}
+
+.card {
+  border: 2px solid gray;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
+    0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cards-container .card img {
+  background-color: green;
+  border: 2px solid;
+  border-radius: 5px;
+  height: 250px;
+}
+
+/* Projects Section */
+
+.projects .btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.projects .cards-container .card {
+  width:400px;
+  transition: all 0.3s ease-in-out;
+}
+
+.projects .cards-container .card:hover {
+  transform: translate3d(0, -20px, 20px);
+  box-shadow: 1px 1px 5px 5px rgba(128, 128, 128, 0.32);
+}
+
+/* Achievemens & Certifications */
+
+/* Footer/Contact Section */
+.contact {
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.contact .section-text {
+  margin-top: 5%;
+}
+
+.contact .contact-details {
+  border: 2px solid gray;
+  border-radius: 10px;
+  padding: 30px;
+  position: absolute;
+  top: 200px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-details .contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.contact img {
+  height: 30px;
+  width: 30px;
+  margin: 0 10px 0 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  padding: 70px;
+  background-color: rgb(31, 41, 55);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+}
+footer .cpy-right{
+  color: whitesmoke;
+}
+footer .back-to-top{
+  color:blueviolet;
+}
+
+/* Resume Page */
+.resume-body {
+  background-color: whitesmoke;
+}
+
+.resume-body::-webkit-scrollbar {
+  display: none;
+}
+
+.resume-download-btn {
+  color: black;
+  font-size: 22px;
+  border: 3px solid black;
+  border-radius: 2rem;
+  padding: 10px 15px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.resume-download-btn:hover {
+  background-color: black;
+  color: white;
+  border: 3px solid white;
+  transform: scale(1.1);
+}
+
+iframe {
+  border: 5px solid rgb(131, 124, 124);
+  width: 100%;
+  height: 100vh;
+}
+
+/* Feedback Form */
+#feedback-box {
+  backdrop-filter: blur(2px);
+  display: none;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.form-off {
+  border: none;
+  height: 40px;
+  width: 45px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 11;
+}
+
+.form-off:hover {
+  background-color: rgb(254, 85, 85);
+  color: white;
+}
+
+.feedback-form {
+  position: relative;
+  background-color: rgb(217, 212, 210);
+  border-radius: 10px;
+  margin: 3rem auto;
+  padding: 50px;
+  height: 500px;
+  width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+#user-name,
+#user-feedback {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+#user-feedback {
+  height: 400px;
+  resize: none;
+  overflow-y: auto;
+}
+
+#form-result {
+  font-size: 20px;
+  background-color: red;
+  bottom: 20px;
+}
+
+#form-btn {
+  background-color: green;
+  color: white;
+  width: 100px;
+  font-size: large;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 35%;
+}
+
+#form-btn:hover {
+  background-color: darkgreen;
+}
+
+#feedback-box.displayform {
+  display: block;
+}

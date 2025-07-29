@@ -1,0 +1,279 @@
+/* Tablet devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+
+  .menubar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    flex: 0 0 15vh;
+    width: 100%;
+    z-index: 10002;
+    user-select: none;
+  }
+
+  .logo {
+    position: absolute;
+    left: 20px;
+  }
+
+  .hamburger {
+    position: absolute;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .hamburger:focus,
+  .hamburger:active {
+    outline: none;
+    box-shadow: none;
+  }
+
+  #toggle-menu {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 10vh;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    background-color: whitesmoke;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #toggle-menu:checked~.menu {
+    display: flex;
+  }
+
+  .off-menu {
+    display: none;
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* semi-transparent overlay */
+  }
+
+  #toggle-menu:checked~.off-menu {
+    display: block;
+  }
+
+  .menu a {
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: black;
+    text-align: center;
+  }
+
+  .menu a:hover {
+    color: rgba(0, 0, 0, 0.521);
+  }
+
+  section {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .profile {
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .profile .profile-pic1 {
+    border-radius: 0px;
+    height: 100px;
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .profile-section-text {
+    padding: 2rem;
+    height: 350px;
+    width: 90%;
+    border: none;
+  }
+
+  .profile-section-text #text-p2 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .about-container {
+    margin-top: 70px;
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+    padding: 20px;
+  }
+
+  .profile-pic2 {
+    height: 450px;
+    width: 350px;
+  }
+
+  .about-right-box {
+    width: 40%;
+  }
+
+  .about-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-box {
+    width: 50%;
+  }
+
+  .projects .cards-container .card:hover {
+    transform: none;
+  }
+
+  .skill-experience {
+    flex-direction: column;
+  }
+
+  .skill-experience .cards-container {
+    overflow-y: hidden;
+  }
+
+  .timeline-item .card {
+    margin-top: 1px;
+  }
+
+  .timeline {
+    display: none;
+  }
+
+  .time-dot {
+    display: none;
+  }
+
+  .cards-container {
+    top: 90px;
+    flex-direction: column;
+    height: 90%;
+  }
+
+  .contact .contact-details {
+    margin-top: 100px;
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .resume-body .navbar {
+    display: flex;
+  }
+
+  .feedback-form {
+    width: 80%;
+    padding: 2rem;
+  }
+}
+
+/* Mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .logo {
+    font-size: 2rem;
+  }
+
+  .profile .profile-pic1 {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 100%;
+  }
+
+  .profile-section-text {
+    padding: 1.5rem;
+  }
+
+  .profile-section-text .title {
+    font-size: 1.8rem;
+  }
+
+  .btn-container .btn-one,
+  .btn-container .btn-two {
+    width: 7rem;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .section-text .title {
+    font-size: 1.5rem;
+  }
+
+  .section-text .text-p1 {
+    font-size: 14px;
+  }
+
+  .about {
+    min-height: auto;
+  }
+
+  .about .profile-pic2 {
+    height: 200px;
+    width: 200px;
+  }
+
+  .about-right-box {
+    width: 95%;
+  }
+
+  .info-box {
+    width: 90%;
+    padding: 0.8rem;
+  }
+
+  .about-paragraph {
+    padding: 1rem;
+    font-size: 14px;
+  }
+
+  .contact .contact-details {
+    font-size: 16px;
+    padding: 1rem;
+  }
+
+  .contact img {
+    height: 25px;
+    width: 25px;
+  }
+
+  .contact-footer {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .feedback-form {
+    width: 90%;
+    padding: 1.5rem;
+    height: auto;
+  }
+
+  #user-name,
+  #user-feedback {
+    font-size: 14px;
+  }
+
+  #form-btn {
+    width: 80px;
+    font-size: 14px;
+    margin-left: 30%;
+  }
+}

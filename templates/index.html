@@ -1,0 +1,179 @@
+<!-- Common items or Dynamic components -->
+<!-- 
+      1. Section text
+      2. Cards at
+          Skills & Experience page
+          Projects page
+          Certifications
+       -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/fonts.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="stylesheet" href="../styles/mediaqueries.css" />
+  <title>Pardha Saradhi / Portfolio</title>
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">Pardha Saradhi</div>
+      <div>
+        <ul class="navlinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HAMBURGER MENU -->
+    <div class="menubar">
+      <div class="logo">Pardha Saradhi</div>
+      <label for="toggle-menu" class="hamburger">&#9776;</label>
+      <input type="checkbox" id="toggle-menu" />
+      <nav class="menu" id="menu">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <label for="toggle-menu" class="off-menu"></label>
+    </div>
+  </header>
+  <!-- Profile Section -->
+  <section class="profile" id="home">
+    <img src="../assets/bg1.jpeg" alt="Profile Picture" class="profile-pic1" />
+    <div class="profile-section-text">
+      <p class="text-p1">Hello, I'm</p>
+      <h1 class="title">Pardha Saradhi</h1>
+      <div id="text-p2">Web Developer</div>
+      <div class="btn-container">
+        <button class="btn-one" onclick="window.location.href ='./resume.html'">
+          Resume
+        </button>
+        <button class="btn-two">Contact</button>
+      </div>
+      <div class="social-media">
+        <a href="">
+          <img src="../assets/bxl-linkedin.svg" alt="LinkedIn Icon" />
+        </a>
+        <a href="">
+          <img src="../assets/bxl-github.svg" alt="GitHub Icon" />
+        </a>
+      </div>
+    </div>
+  </section>
+  <i id="about"></i>
+  <!-- About Section -->
+  <section class="about">
+    <!-- heading -->
+    <div class="section-text">
+      <p class="text-p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+    </div>
+    <div class="about-container">
+      <img src="../assets/bg1.jpeg" alt="Profile Picture" class="profile-pic2" />
+      <div class="about-right-box">
+        <div class="about-info">
+          <div class="info-box">
+            <img src="../assets/bxs-experience.svg" alt="icon" />
+            <h1>Experience</h1>
+            <p>0 years</p>
+            <p>Web Developer</p>
+          </div>
+          <div class="info-box">
+            <img src="../assets/bxs-graduation.svg" alt="icon" />
+            <h1>Education</h1>
+            <p>
+              B.tech <br />
+              Computer Science & Engineering
+            </p>
+            <p>--</p>
+          </div>
+        </div>
+        <div class="about-paragraph">
+          <p>
+            Motivated Computer Science B.Tech student with a strong foundation in C, Java, Python, and web technologies
+            (HTML,
+            CSS, JavaScript). Skilled in developing responsive web applications through academic projects, emphasizing
+            usability
+            and functionality. Eager to apply problem-solving abilities and technical knowledge to contribute to
+            innovative software
+            solutions in a collaborative team environment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <i id="experience"></i>
+  <!-- Experience Section -->
+  <section class="skill-experience">
+    <div class="section-text">
+      <p class="text-p1">Explore My</p>
+      <h1 class="title">Skills & Experience</h1>
+    </div>
+    <div class="cards-container">
+      <div class="timeline"></div>
+    </div>
+  </section>
+  <i id="projects"></i>
+  <section class="projects">
+    <div class="section-text">
+      <p class="text-p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+    </div>
+    <div class="cards-container"></div>
+  </section>
+  <i id="certifications"></i>
+  <section class="achievement-certifications">
+    <div class="section-text">
+      <p class="text-p1">My Credentials</p>
+      <h1 class="title">Achievemens & Certifications</h1>
+    </div>
+    <div class="cards-container"></div>
+  </section>
+  <section class="contact">
+    <i id="contact"></i>
+    <div class="section-text">
+      <p class="text-p1">Get In Touch</p>
+      <h1 class="title">Contact Me</h1>
+    </div>
+    <div class="contact-details">
+      <div class="contact-item">
+        <img src="../assets/bx-envelope.svg" alt="email" />
+        <p>
+          <a href="mailto:p8883749@gmail.com">pardhasaradhi@gmail.com</a>
+        </p>
+      </div>
+      <div class="contact-item">
+        <img src="../assets/bxl-linkedin.svg" alt="linkedin" />
+        <p><a href=" ">Linkedin</a></p>
+      </div>
+      <div class="contact-item">
+        <img src="../assets/bxl-instagram.svg" alt="instagram" />
+        <p><a href=" ">Instagram</a></p>
+      </div>
+    </div>
+    <footer>
+      <div class="cpy-right">
+        Copyright &copy;
+        <span id="current-year"></span>
+        Pardha Saradhi. All Rights Reserved.
+      </div>
+      <a href="#home" class="back-to-top">Back to top ↑</a>
+    </footer>
+  </section>
+
+  <script src="../JS/index.js"></script>
+  <script src="../JS/renderCard.js"></script>
+</body>
+
+</html>

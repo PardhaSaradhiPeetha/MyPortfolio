@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/fonts.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="stylesheet" href="../styles/mediaqueries.css" />
+  <title>Pardha Saradhi / Resume</title>
+</head>
+
+<body class="resume-body">
+  <div class="navbar">
+    <h1>Resume</h1>
+    <!-- <a href="resume.pdf" download="resume.pdf">Download</a> -->
+    <button type="button" class="resume-download-btn" onclick="toggle_feedback()">
+      Download
+    </button>
+  </div>
+  <iframe src="../sources/myResume.pdf#toolbar=0"></iframe>
+
+  <!-- feedback form -->
+  <div id="feedback-box">
+    <div class="feedback-form">
+      <button type="button" class="form-off" onclick="clear_form()">✕</button>
+      <h2>Share Your Insights</h2>
+      <input type="text" id="user-name" placeholder="name" />
+      <textarea placeholder="Feedback" id="user-feedback"></textarea>
+      <button type="button" id="form-btn" onclick="check_feedback()">
+        submit
+      </button>
+      <div id="form-result"></div>
+    </div>
+  </div>
+  <script src="../JS/resume.js"></script>
+</body>
+
+</html>
