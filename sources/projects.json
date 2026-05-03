@@ -22,5 +22,13 @@
         "image": "",
         "github": "",
         "demo": ""
+    },
+    {
+        "id": 3,
+        "title": "Project Three",
+        "description": "An e-commerce platform with Django",
+        "image": "",
+        "github": "",
+        "demo": ""
     }
 ]

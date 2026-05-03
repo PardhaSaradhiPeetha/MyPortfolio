@@ -6,31 +6,37 @@
 
   .menubar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 10vh;
-    flex: 0 0 15vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    z-index: 10002;
-    user-select: none;
+    height: 3.5rem;
+    padding: 0 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1000;
   }
 
   .logo {
-    position: absolute;
-    left: 20px;
+    position: static;
+    font-size: 1.1rem;
+    font-weight: 600;
   }
 
   .hamburger {
-    position: absolute;
-    right: 20px;
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-  }
-
-  .hamburger:focus,
-  .hamburger:active {
-    outline: none;
-    box-shadow: none;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    color: #0f172a;
+    padding: 0;
   }
 
   #toggle-menu {
@@ -39,52 +45,78 @@
 
   .menu {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 10vh;
+    position: fixed;
+    top: 3.5rem;
+    left: 0;
+    right: 0;
     width: 100%;
-    padding: 1rem;
-    z-index: 1000;
-    background-color: whitesmoke;
-    transition: all 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    padding: 1rem 0;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 3.5rem);
+    overflow-y: auto;
   }
 
   #toggle-menu:checked~.menu {
     display: flex;
   }
 
+  .menu a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: #0f172a;
+    font-weight: 500;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.2s ease;
+  }
+
+  .menu a:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+  }
+
   .off-menu {
     display: none;
     position: fixed;
-    top: 10vh;
+    top: 3.5rem;
     left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* semi-transparent overlay */
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    background-color: transparent;
+    z-index: 998;
   }
 
   #toggle-menu:checked~.off-menu {
     display: block;
   }
 
-  .menu a {
-    font-size: 1.5rem;
-    padding: 1rem;
-    color: black;
-    text-align: center;
-  }
-
-  .menu a:hover {
-    color: rgba(0, 0, 0, 0.521);
+  .navlinks {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    padding-bottom: 2px;
+    white-space: nowrap;
   }
 
   section {
     flex-direction: column;
     justify-content: flex-start;
     height: auto;
-    padding: 2rem 1rem;
+    padding: 120px 1rem 1.5rem 1rem;
+    margin-top: 3.5rem;
+    position: relative;
+  }
+
+  .section-text {
+    position: relative;
+    top: auto;
+    margin-bottom: 1.5rem;
   }
 
   .profile {
@@ -103,9 +135,10 @@
   }
 
   .profile-section-text {
-    padding: 2rem;
-    height: 350px;
-    width: 90%;
+    padding: 1.5rem;
+    height: auto;
+    width: 100%;
+    max-width: 500px;
     border: none;
   }
 
@@ -123,12 +156,12 @@
   }
 
   .profile-pic2 {
-    height: 450px;
-    width: 350px;
+    height: 280px;
+    width: 280px;
   }
 
   .about-right-box {
-    width: 40%;
+    width: 100%;
   }
 
   .about-info {
@@ -137,7 +170,29 @@
   }
 
   .info-box {
-    width: 50%;
+    width: 100%;
+  }
+
+  .dashboard-cards {
+    margin: 90px auto 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card,
+  .projects .cards-container .card,
+  .certifications .card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .projects .cards-container,
+  .certifications .cards-container {
+    margin-top: 80px;
   }
 
   .projects .cards-container .card:hover {
@@ -165,15 +220,41 @@
   }
 
   .cards-container {
-    top: 90px;
+    top: 0;
     flex-direction: column;
-    height: 90%;
+    height: auto;
+    align-items: center;
+    overflow: visible;
   }
 
-  .contact .contact-details {
-    margin-top: 100px;
-    width: 90%;
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     padding: 1.5rem;
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .btn-submit,
+  .btn-reset {
+    width: 100%;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  footer {
+    padding: 2rem 1.5rem;
   }
 
   .resume-body .navbar {
@@ -186,20 +267,78 @@
   }
 }
 
+/* Card grid responsive breakpoints (5 -> 4 -> 3 -> 2 -> 1) */
+@media screen and (max-width: 1400px) {
+  .cards-container {
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 18px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .cards-container {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 18px;
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cards-container {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 16px;
+    padding: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .cards-container .card img {
+    height: 180px;
+  }
+}
+
 /* Mobile devices (max-width: 480px) */
 @media screen and (max-width: 480px) {
+  .menubar {
+    height: 3rem;
+    padding: 0 0.8rem;
+  }
+
   .logo {
-    font-size: 2rem;
+    font-size: 0.95rem;
+  }
+
+  .hamburger {
+    font-size: 1.5rem;
+  }
+
+  .menu {
+    top: 3rem;
+  }
+
+  .off-menu {
+    top: 3rem;
+    height: calc(100vh - 3rem);
   }
 
   .profile .profile-pic1 {
-    height: 20rem;
-    width: 20rem;
+    height: 14rem;
+    width: 14rem;
     border-radius: 100%;
   }
 
   .profile-section-text {
-    padding: 1.5rem;
+    padding: 1.2rem;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
   }
 
   .profile-section-text .title {
@@ -208,9 +347,9 @@
 
   .btn-container .btn-one,
   .btn-container .btn-two {
-    width: 7rem;
-    padding: 10px;
-    font-size: 14px;
+    width: 6rem;
+    padding: 8px;
+    font-size: 12px;
   }
 
   .section-text .title {
@@ -247,6 +386,8 @@
   .contact .contact-details {
     font-size: 16px;
     padding: 1rem;
+    width: 100%;
+    margin-top: 80px;
   }
 
   .contact img {
@@ -264,6 +405,29 @@
     width: 90%;
     padding: 1.5rem;
     height: auto;
+  }
+
+  .contact-form h3 {
+    font-size: 1.1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+
+  .btn-submit,
+  .btn-reset {
+    font-size: 0.9rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .footer-section h4 {
+    font-size: 0.9rem;
+  }
+
+  .footer-section a {
+    font-size: 0.85rem;
   }
 
   #user-name,
