@@ -9,15 +9,17 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 3.5rem;
-    padding: 0 1rem;
-    background: rgba(255, 255, 255, 0.95);
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(95%, 980px);
+    height: 4.5rem;
+    padding: 0 24px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
     z-index: 1000;
   }
 
@@ -46,17 +48,19 @@
   .menu {
     display: none;
     position: fixed;
-    top: 3.5rem;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.98);
+    top: calc(16px + 4.5rem + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(95%, 980px);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(12px);
     flex-direction: column;
     padding: 1rem 0;
     z-index: 999;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-height: calc(100vh - 3.5rem);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+    max-height: calc(100vh - (16px + 4.5rem + 24px));
     overflow-y: auto;
   }
 
@@ -82,11 +86,7 @@
   .off-menu {
     display: none;
     position: fixed;
-    top: 3.5rem;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: calc(100vh - 3.5rem);
+    inset: 0;
     background-color: transparent;
     z-index: 998;
   }
@@ -108,15 +108,10 @@
     flex-direction: column;
     justify-content: flex-start;
     height: auto;
-    padding: 120px 1rem 1.5rem 1rem;
-    margin-top: 3.5rem;
+    padding: var(--section-pad-y) 1rem;
+    margin-top: 0;
     position: relative;
-  }
-
-  .section-text {
-    position: relative;
-    top: auto;
-    margin-bottom: 1.5rem;
+    gap: var(--section-pad-y);
   }
 
   .profile {
@@ -174,7 +169,7 @@
   }
 
   .dashboard-cards {
-    margin: 90px auto 0;
+    margin: 0 auto;
     width: 100%;
     max-width: 100%;
     padding: 0 1rem;
@@ -199,24 +194,11 @@
     transform: none;
   }
 
-  .skill-experience {
-    flex-direction: column;
-  }
-
-  .skill-experience .cards-container {
-    overflow-y: hidden;
-  }
-
-  .timeline-item .card {
-    margin-top: 1px;
-  }
-
-  .timeline {
-    display: none;
-  }
-
-  .time-dot {
-    display: none;
+  .skills-grid {
+    width: 100%;
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .cards-container {
@@ -257,13 +239,8 @@
     padding: 2rem 1.5rem;
   }
 
-  .resume-body .navbar {
-    display: flex;
-  }
-
-  .feedback-form {
-    width: 80%;
-    padding: 2rem;
+  .resume-header {
+    padding: 14px 12px;
   }
 }
 
@@ -282,6 +259,10 @@
     gap: 18px;
     padding: 16px;
   }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -289,6 +270,10 @@
     grid-template-columns: repeat(2, minmax(140px, 1fr));
     gap: 16px;
     padding: 14px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -401,11 +386,6 @@
     padding: 0 1rem;
   }
 
-  .feedback-form {
-    width: 90%;
-    padding: 1.5rem;
-    height: auto;
-  }
 
   .contact-form h3 {
     font-size: 1.1rem;
@@ -430,14 +410,4 @@
     font-size: 0.85rem;
   }
 
-  #user-name,
-  #user-feedback {
-    font-size: 14px;
-  }
-
-  #form-btn {
-    width: 80px;
-    font-size: 14px;
-    margin-left: 30%;
-  }
 }

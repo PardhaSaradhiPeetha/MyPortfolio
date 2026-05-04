@@ -42,29 +42,24 @@ function renderDashboardStats(stats, projects, certificates) {
 fetch("../sources/skills.json")
   .then((response) => response.json())
   .then((data) => {
-    const cardContainer = document.querySelector(".skill-experience .cards-container");
+    const skillsGrid = document.querySelector(".skill-experience .skills-grid");
+    if (!skillsGrid) {
+      console.error("Error: Skills grid container not found");
+      return;
+    }
+
     data.forEach((skill) => {
+      const details = Array.isArray(skill.details) ? skill.details : [];
       const cardHTML = `
-        <div class="timeline-item">
-          <div class="time-dot"></div>
-          <div class="card">
-            <h1>${skill.title}</h1>
-            ${skill.details.map((detail) => `<div>${detail}</div>`).join("")}
+        <div class="skill-card">
+          <h3 class="skill-title">${skill.title || "Skill"}</h3>
+          <div class="skill-tags">
+            ${details.map((detail) => `<span class="skill-tag">${detail}</span>`).join("")}
           </div>
         </div>
       `;
-      cardContainer.insertAdjacentHTML("beforeend", cardHTML);
+      skillsGrid.insertAdjacentHTML("beforeend", cardHTML);
     });
-
-    const timeline = document.querySelector(".timeline");
-    const timelineItems = document.querySelectorAll(".timeline-item");
-    const lastTimelineItem = timelineItems[timelineItems.length - 1];
-
-    if (timeline && lastTimelineItem) {
-      const timelineWidth =
-        lastTimelineItem.offsetLeft + lastTimelineItem.offsetWidth / 2 - timeline.offsetLeft;
-      timeline.style.width = `${timelineWidth}px`;
-    }
   })
   .catch((error) => console.error("Error:", error));
 

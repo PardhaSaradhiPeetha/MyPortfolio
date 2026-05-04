@@ -11,26 +11,42 @@
 </head>
 
 <body class="resume-body">
-  <div class="navbar">
-    <h1>Resume</h1>
-    <!-- <a href="resume.pdf" download="resume.pdf">Download</a> -->
+  <header class="resume-header">
+    <h1 class="resume-title">Resume</h1>
     <button type="button" class="resume-download-btn" onclick="toggle_feedback()">
       Download
     </button>
-  </div>
-  <iframe src="../sources/myResume.pdf#toolbar=0"></iframe>
+  </header>
+
+  <main class="resume-container">
+    <div class="resume-viewer" aria-label="Resume PDF">
+      <object class="resume-pdf" data="../sources/myResume.pdf#toolbar=0" type="application/pdf"
+        aria-label="Resume PDF">
+        <p class="resume-no-preview">
+          PDF preview isn’t supported in this browser. Use the Download button above.
+        </p>
+      </object>
+    </div>
+  </main>
 
   <!-- feedback form -->
   <div id="feedback-box">
-    <div class="feedback-form">
+    <div class="feedback-form" role="dialog" aria-modal="true" aria-labelledby="feedback-title">
       <button type="button" class="form-off" onclick="clear_form()">✕</button>
-      <h2>Share Your Insights</h2>
-      <input type="text" id="user-name" placeholder="name" />
+      <h2 id="feedback-title">Share Your Insights</h2>
+      <p class="feedback-hint">Feedback is optional — you can skip and download.</p>
+
+      <label class="sr-only" for="user-name">Name</label>
+      <input type="text" id="user-name" placeholder="Name" autocomplete="name" />
+
+      <label class="sr-only" for="user-feedback">Feedback</label>
       <textarea placeholder="Feedback" id="user-feedback"></textarea>
-      <button type="button" id="form-btn" onclick="check_feedback()">
-        submit
-      </button>
-      <div id="form-result"></div>
+
+      <div class="feedback-actions">
+        <button type="button" id="skip-btn" onclick="skip_feedback()">Skip</button>
+        <button type="button" id="form-btn" onclick="check_feedback()">Submit</button>
+      </div>
+      <div id="form-result" aria-live="polite"></div>
     </div>
   </div>
   <script src="../JS/resume.js"></script>

@@ -9,7 +9,9 @@
 }
 
 html {
-  scroll-padding-top: 100px;
+  --nav-offset: 96px;
+  --section-pad-y: 32px;
+  scroll-padding-top: var(--nav-offset);
 }
 
 *::-webkit-scrollbar {
@@ -27,6 +29,18 @@ body {
 
 p {
   color: rgb(85, 85, 85);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 img {
@@ -65,6 +79,7 @@ a {
   color: black;
   cursor: default;
 }
+
 .logo:hover {
   color: #2563eb;
 }
@@ -113,16 +128,18 @@ a {
 
 /* Common Section CSS */
 section {
-  margin-top: 5.5rem;
+  margin-top: 0;
   position: relative;
   width: 100%;
   flex: 0 0 auto;
   min-height: auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  padding: 120px 1.25rem 2rem 1.25rem;
+  scroll-margin-top: var(--nav-offset);
+  padding: var(--section-pad-y) 1.25rem;
+  gap: var(--section-pad-y);
   background-color: white;
 }
 
@@ -133,13 +150,10 @@ section {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 50;
-  width: 90%;
-  max-width: 600px;
+  position: relative;
+  z-index: 1;
+  width: min(92%, 600px);
+  margin-bottom: 0;
 }
 
 .section-text .text-p1 {
@@ -148,6 +162,13 @@ section {
 }
 
 /* Profile Section TODO:*/
+
+.profile {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3rem;
+}
 
 .profile-section-text {
   font-size: 24px;
@@ -275,46 +296,45 @@ section {
 
 .skill-experience {
   height: auto;
-  overflow: hidden;
 }
 
-.skill-experience .cards-container {
-  overflow-y: hidden;
+.skills-grid {
+  width: min(1100px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  padding: 0 20px;
 }
 
-.timeline {
-  background-color: rgb(135, 134, 134);
-  position: absolute;
-  top: 80px;
-  left: 20px;
-  border-radius: 10px;
-  height: 5px;
-  width: 300px;
+.skill-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: 0 12px 24px rgba(30, 41, 59, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.timeline-item .time-dot {
-  position: absolute;
-  top: 72px;
-  width: 10px;
-  height: 10px;
-  transform: rotate(45deg);
-  z-index: 10;
-  margin-left: 150px;
-  background-color: black;
-  padding: 10px;
+.skill-title {
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: #0f172a;
 }
 
-.timeline-item .card {
-  margin-top: 120px;
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.timeline-item .card div {
-  text-align: left;
-  background: #e5e7eb;
-  font-size: 60px;
-  padding: 0.5rem;
-  padding-left: 2rem;
-  border-radius: 20px;
+.skill-tag {
+  background-color: #e2e8f0;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  border-radius: 999px;
+  padding: 6px 10px;
   font-size: 0.9rem;
 }
 
@@ -359,37 +379,42 @@ section {
 }
 
 .dashboard {
-  min-height: 90vh;
-}
-.dashboard .section-text {
-  top: 135px;
+  min-height: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .dashboard-cards {
-  margin: 100px auto 0;
-  width: min(1100px, 100%);
+  margin: 0 auto;
+  width: min(1200px, 100%);
   display: grid;
-  grid-template-columns: repeat(3, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
   padding: 0 20px;
+  align-items: stretch;
 }
 
 .stat-card {
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid #dbeafe;
   border-radius: 18px;
-  padding: 1.5rem;
+  padding: 2rem;
   box-shadow: 0 12px 24px rgba(30, 41, 59, 0.08);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
 }
 
 .stat-label {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #475569;
 }
 
 .stat-card h2 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: #1e293b;
   margin: 8px 0;
 }
@@ -437,7 +462,6 @@ section {
 
 /* Contact Section */
 .contact {
-  padding-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -682,11 +706,35 @@ footer .back-to-top:hover {
 
 /* Resume Page */
 .resume-body {
-  background-color: whitesmoke;
+  background-color: white;
 }
 
-.resume-body::-webkit-scrollbar {
-  display: none;
+.resume-header {
+  width: 100%;
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgba(2, 6, 23, 0.08);
+  background: white;
+}
+
+.resume-title {
+  font-size: 1.4rem;
+  font-weight: 650;
+  color: #0f172a;
+}
+
+.resume-container {
+  width: 100%;
+  margin: 0;
+  flex: 1;
+  min-height: 0;
+}
+
+.resume-viewer {
+  height: 100%;
 }
 
 .resume-download-btn {
@@ -705,91 +753,148 @@ footer .back-to-top:hover {
   transform: scale(1.1);
 }
 
-iframe {
-  border: 5px solid rgb(131, 124, 124);
+.resume-body .resume-pdf {
+  border: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 0;
+  display: block;
+}
+
+.resume-no-preview {
+  padding: 16px;
+  color: #475569;
 }
 
 /* Feedback Form */
-#feedback-box {
-  backdrop-filter: blur(2px);
+
+.resume-body #feedback-box {
   display: none;
-  width: 100%;
-  z-index: 10;
   position: fixed;
-  left: 0;
-  top: 0;
+  inset: 0;
+  z-index: 2000;
+  padding: 24px 16px;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
 }
 
-.form-off {
+
+.resume-body .form-off {
   border: none;
   height: 40px;
-  width: 45px;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 24px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 11;
-}
-
-.form-off:hover {
-  background-color: rgb(254, 85, 85);
-  color: white;
-}
-
-.feedback-form {
-  position: relative;
-  background-color: rgb(217, 212, 210);
+  width: 40px;
   border-radius: 10px;
-  margin: 3rem auto;
-  padding: 50px;
-  height: 500px;
-  width: 400px;
-  text-align: center;
+  font-weight: 700;
+  font-size: 22px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  background: transparent;
+  color: #0f172a;
+}
+
+
+.resume-body .form-off:hover {
+  background-color: rgba(15, 23, 42, 0.08);
+}
+
+
+.resume-body .feedback-form {
+  position: relative;
+  width: min(92vw, 560px);
+  margin: 0 auto;
+  background: white;
+  border: 1px solid rgba(2, 6, 23, 0.12);
+  border-radius: 18px;
+  padding: 22px;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 12px;
+  box-shadow: 0 18px 50px rgba(2, 6, 23, 0.28);
 }
 
-#user-name,
-#user-feedback {
+.resume-body .feedback-form h2 {
+  margin-right: 44px;
+  color: #0f172a;
+}
+
+.resume-body .feedback-hint {
+  margin-top: -4px;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+
+.resume-body #user-name,
+.resume-body #user-feedback {
   width: 100%;
-  padding: 10px;
+  padding: 12px 12px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  border-radius: 12px;
+  background: white;
+  color: #0f172a;
+}
+
+.resume-body #user-name:focus,
+.resume-body #user-feedback:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.4);
+  border-color: rgba(37, 99, 235, 0.7);
+}
+
+
+.resume-body #user-feedback {
+  min-height: 160px;
+  max-height: 46vh;
+  resize: vertical;
+}
+
+
+.resume-body #form-result {
+  min-height: 1.25rem;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.resume-body .feedback-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+
+.resume-body #skip-btn,
+.resume-body #form-btn {
   border: none;
-  border-radius: 5px;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-#user-feedback {
-  height: 400px;
-  resize: none;
-  overflow-y: auto;
+.resume-body #skip-btn {
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
 }
 
-#form-result {
-  font-size: 20px;
-  background-color: red;
-  bottom: 20px;
+.resume-body #skip-btn:hover {
+  background: rgba(15, 23, 42, 0.14);
 }
 
-#form-btn {
-  background-color: green;
+.resume-body #form-btn {
+  background: #0f172a;
   color: white;
-  width: 100px;
-  font-size: large;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin-left: 35%;
 }
 
-#form-btn:hover {
-  background-color: darkgreen;
+
+.resume-body #form-btn:hover {
+  background: #111827;
 }
 
-#feedback-box.displayform {
-  display: block;
+.resume-body #feedback-box.displayform {
+  display: grid;
+  place-items: center;
 }
