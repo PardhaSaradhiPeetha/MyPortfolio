@@ -12,6 +12,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  </script>
   <link rel="stylesheet" href="../styles/fonts.css" />
   <link rel="stylesheet" href="../styles/style.css" />
   <link rel="stylesheet" href="../styles/mediaqueries.css" />
@@ -19,10 +24,11 @@
 </head>
 
 <body>
+  <a class="sr-only" href="#home">Skip to main content</a>
   <header>
     <div class="navbar">
       <div class="logo"><a href="#home">Pardha Saradhi</a></div>
-      <div>
+      <nav aria-label="Primary navigation">
         <ul class="navlinks">
           <li><a href="#dashboard">Dashboard</a></li>
           <li><a href="#about">About</a></li>
@@ -31,23 +37,25 @@
           <li><a href="#certifications">Certifications</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-      </div>
+      </nav>
     </div>
 
     <!-- HAMBURGER MENU -->
     <div class="menubar">
-      <div class="logo">Pardha Saradhi</div>
-      <label for="toggle-menu" class="hamburger">&#9776;</label>
-      <input type="checkbox" id="toggle-menu" />
-      <nav class="menu" id="menu">
-        <a href="#dashboard">Dashboard</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
+      <div class="logo"><a href="#home">Pardha Saradhi</a></div>
+      <label for="toggle-menu" class="hamburger" aria-label="Open navigation menu">&#9776;</label>
+      <input type="checkbox" id="toggle-menu" aria-label="Toggle navigation menu" />
+      <nav class="menu" id="menu" aria-label="Mobile navigation" aria-hidden="true">
+        <ul class="menu-links">
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
-      <label for="toggle-menu" class="off-menu"></label>
+      <label for="toggle-menu" class="off-menu" aria-label="Close navigation menu"></label>
     </div>
   </header>
   <main>
@@ -55,22 +63,24 @@
     <section class="profile" id="home">
       <img src="../assets/bg1.jpeg" alt="Profile Picture" class="profile-pic1" />
       <div class="profile-section-text">
-        <p class="text-p1">Hi, I'm</p>
+        <p class="text-p1">Welcome to my portfolio</p>
         <h1 class="title">Pardha Saradhi</h1>
-
         <div id="text-p2">Full Stack Developer</div>
+        <p class="profile-lead">
+          I design and build clean, scalable web products with smooth user experiences.
+        </p>
 
         <div class="btn-container">
           <button class="btn-one" onclick="window.location.href ='./resume.html'">
-            Resume
+            View Resume
           </button>
-          <button class="btn-two" onclick="window.location.href='#contact'">Contact</button>
+          <button class="btn-two" onclick="window.location.href='#contact'">Let's Connect</button>
         </div>
         <div class="social-media">
-          <a href="#contact">
+          <a href="#contact" aria-label="LinkedIn">
             <img src="../assets/bxl-linkedin.svg" alt="LinkedIn Icon" />
           </a>
-          <a href="#contact">
+          <a href="#contact" aria-label="GitHub">
             <img src="../assets/bxl-github.svg" alt="GitHub Icon" />
           </a>
         </div>
@@ -85,14 +95,25 @@
         <div class="stat-card">
           <p class="stat-label">Problems Solved</p>
           <h2 id="problems-solved-total">0</h2>
-          <p class="stat-sub" id="problem-breakdown">LeetCode: 0 | GFG: 0</p>
+          <div class="stat-sub" id="problem-breakdown">
+            <a id="leet-link" class="stat-icon" href="#" aria-label="Open LeetCode profile" target="_blank">
+              <img src="../assets/leetcode.svg" alt="LeetCode" />
+              <span class="count" id="leet-count">0</span>
+            </a>
+            <a id="gfg-link" class="stat-icon" href="#" aria-label="Open GFG profile" target="_blank">
+              <img src="../assets/geeksforgeeks.svg" alt="GeeksforGeeks" />
+              <span class="count" id="gfg-count">0</span>
+            </a>
+          </div>
         </div>
         <div class="stat-card">
-          <p class="stat-label">Projects Done</p>
+          <p class="stat-label"><img src="../assets/website-generic.svg" alt="Projects" class="stat-title-icon" />
+            Projects Done</p>
           <h2 id="projects-count">0</h2>
         </div>
         <div class="stat-card">
-          <p class="stat-label">Certifications</p>
+          <p class="stat-label"><img src="../assets/certificate.svg" alt="Certifications" class="stat-title-icon" />
+            Certifications</p>
           <h2 id="certifications-count">0</h2>
         </div>
         <div class="stat-card">

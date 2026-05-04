@@ -4,6 +4,12 @@ window.addEventListener("load", () => {
   document.getElementById("current-year").innerText = currentYear.getFullYear();
 });
 
+window.addEventListener("pageshow", () => {
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+});
+
 function ImgSecure() {
   console.log(window.innerWidth, window.outerWidth);
   document.addEventListener("contextmenu", function (event) {
@@ -17,12 +23,27 @@ function ImgSecure() {
 document.addEventListener("DOMContentLoaded", function () {
   const toggleMenu = document.getElementById("toggle-menu");
   const menuLinks = document.querySelectorAll(".menu a");
+  const menu = document.getElementById("menu");
+
+  const syncMenuState = () => {
+    if (!toggleMenu || !menu) {
+      return;
+    }
+    menu.setAttribute("aria-hidden", String(!toggleMenu.checked));
+  };
+
+  syncMenuState();
+
+  if (toggleMenu) {
+    toggleMenu.addEventListener("change", syncMenuState);
+  }
 
   // Close menu when a link is clicked
   menuLinks.forEach((link) => {
     link.addEventListener("click", function () {
       if (toggleMenu) {
         toggleMenu.checked = false;
+        syncMenuState();
       }
     });
   });
@@ -33,9 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
     offMenu.addEventListener("click", function () {
       if (toggleMenu) {
         toggleMenu.checked = false;
+        syncMenuState();
       }
     });
   }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && toggleMenu?.checked) {
+      toggleMenu.checked = false;
+      syncMenuState();
+    }
+  });
 
   // Contact form handler
   const contactForm = document.getElementById("contactForm");
@@ -69,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const text = document.getElementById("text-p2");
 let index = 0;
-let skills = ["MERN Stack","Linux", "Docker", "JAVA", "Python"];
+let skills = ["MERN Stack", "Linux", "Docker", "JAVA", "Python"];
 function textChange() {
   text.innerText = skills[index];
   index = (index + 1) % skills.length;

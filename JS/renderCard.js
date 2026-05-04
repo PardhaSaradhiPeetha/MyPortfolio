@@ -22,14 +22,37 @@ function renderDashboardStats(stats, projects, certificates) {
 
   const totalProblemsElement = document.getElementById("problems-solved-total");
   const problemBreakdownElement = document.getElementById("problem-breakdown");
+  const leetLink = document.getElementById("leet-link");
+  const gfgLink = document.getElementById("gfg-link");
+  const leetCountEl = document.getElementById("leet-count");
+  const gfgCountEl = document.getElementById("gfg-count");
   const projectsCountElement = document.getElementById("projects-count");
   const certificationsCountElement = document.getElementById("certifications-count");
 
   if (totalProblemsElement) {
     totalProblemsElement.textContent = totalProblemsSolved;
   }
-  if (problemBreakdownElement) {
-    problemBreakdownElement.textContent = `LeetCode: ${leetCodeSolved} | GFG: ${gfgSolved}`;
+  if (leetCountEl) {
+    leetCountEl.textContent = leetCodeSolved;
+  }
+  if (gfgCountEl) {
+    gfgCountEl.textContent = gfgSolved;
+  }
+  if (leetLink) {
+    const url = stats?.leetcode?.Profile || "#";
+    leetLink.setAttribute("href", normalizeLink(url));
+    leetLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      openExternal(url);
+    });
+  }
+  if (gfgLink) {
+    const url = stats?.gfg?.Profile || "#";
+    gfgLink.setAttribute("href", normalizeLink(url));
+    gfgLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      openExternal(url);
+    });
   }
   if (projectsCountElement) {
     projectsCountElement.textContent = projects.length;
