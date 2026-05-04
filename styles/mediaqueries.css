@@ -1,5 +1,10 @@
 /* Tablet devices (max-width: 768px) */
 @media screen and (max-width: 768px) {
+  html {
+    --nav-offset: 92px;
+    --section-pad-y: clamp(2.25rem, 9vw, 3.2rem);
+  }
+
   .navbar {
     display: none;
   }
@@ -108,18 +113,18 @@
     flex-direction: column;
     justify-content: flex-start;
     height: auto;
-    padding: var(--section-pad-y) 1rem;
+    padding: var(--section-pad-y) 1.1rem;
     margin-top: 0;
     position: relative;
-    gap: var(--section-pad-y);
+    gap: 1.5rem;
   }
 
   .profile {
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
+    gap: 1.8rem;
     min-height: auto;
-    padding: 2rem;
+    padding: 1.6rem 1.2rem;
   }
 
   .profile .profile-pic1 {
@@ -130,10 +135,10 @@
   }
 
   .profile-section-text {
-    padding: 1.5rem;
+    padding: 1.75rem;
     height: auto;
     width: 100%;
-    max-width: 500px;
+    max-width: 560px;
     border: none;
   }
 
@@ -143,11 +148,11 @@
   }
 
   .about-container {
-    margin-top: 70px;
+    margin-top: 12px;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.8rem;
     height: auto;
-    padding: 20px;
+    padding: 1rem;
   }
 
   .profile-pic2 {
@@ -162,6 +167,7 @@
   .about-info {
     flex-direction: column;
     align-items: center;
+    gap: 0.85rem;
   }
 
   .info-box {
@@ -172,9 +178,9 @@
     margin: 0 auto;
     width: 100%;
     max-width: 100%;
-    padding: 0 1rem;
+    padding: 0 1.1rem;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 18px;
   }
 
   .card,
@@ -187,7 +193,7 @@
 
   .projects .cards-container,
   .certifications .cards-container {
-    margin-top: 80px;
+    margin-top: 28px;
   }
 
   .projects .cards-container .card:hover {
@@ -196,9 +202,9 @@
 
   .skills-grid {
     width: 100%;
-    padding: 0 1rem;
+    padding: 0 1.1rem;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 18px;
   }
 
   .cards-container {
@@ -211,9 +217,9 @@
 
   .contact-container {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 1.5rem;
-    margin-top: 50px;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    margin-top: 24px;
     margin-bottom: 10px;
   }
 
@@ -236,7 +242,7 @@
   }
 
   footer {
-    padding: 2rem 1.5rem;
+    padding: 2.4rem 1.5rem;
   }
 
   .resume-header {
@@ -291,8 +297,13 @@
 
 /* Mobile devices (max-width: 480px) */
 @media screen and (max-width: 480px) {
+  html {
+    --nav-offset: 76px;
+    --section-pad-y: 2rem;
+  }
+
   .menubar {
-    height: 3rem;
+    height: 3.25rem;
     padding: 0 0.8rem;
   }
 
@@ -305,12 +316,16 @@
   }
 
   .menu {
-    top: 3rem;
+    top: calc(16px + 3.25rem + 8px);
   }
 
   .off-menu {
-    top: 3rem;
-    height: calc(100vh - 3rem);
+    top: calc(16px + 3.25rem + 8px);
+    height: calc(100vh - (16px + 3.25rem + 8px));
+  }
+
+  .profile {
+    padding: 1.35rem 1rem;
   }
 
   .profile .profile-pic1 {
@@ -320,10 +335,17 @@
   }
 
   .profile-section-text {
-    padding: 1.2rem;
+    padding: 1.5rem 1.15rem;
     width: 100%;
     height: auto;
     max-width: 100%;
+  }
+
+  .dashboard-cards,
+  .skills-grid,
+  .cards-container {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
   }
 
   .profile-section-text .title {
