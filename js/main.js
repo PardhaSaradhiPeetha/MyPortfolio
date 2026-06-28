@@ -66,34 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Contact form handler
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const subject = document.getElementById("subject").value;
-      const message = document.getElementById("message").value;
-
-      // Validate form
-      if (!name || !email || !subject || !message) {
-        alert("Please fill in all fields");
-        return;
-      }
-
-      // Create mailto link
-      const mailtoLink = `mailto:pardhasaradhi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-
-      // Open email client
-      window.location.href = mailtoLink;
-
-      // Reset form
-      contactForm.reset();
-      alert("Thank you for reaching out! Your email client will open.");
-    });
-  }
+  // Contact form handler lives in `js/contact.js`
 });
 
 const text = document.getElementById("text-p2");

@@ -1,5 +1,5 @@
-const DEFAULT_PROJECT_IMAGE = "../assets/bg1.jpeg";
-const DEFAULT_CERT_IMAGE = "../assets/bg1.jpeg";
+const DEFAULT_PROJECT_IMAGE = "assets/images/bg1.jpeg";
+const DEFAULT_CERT_IMAGE = "assets/images/bg1.jpeg";
 
 function normalizeLink(link) {
   if (!link || link === "#") {
@@ -62,7 +62,7 @@ function renderDashboardStats(stats, projects, certificates) {
   }
 }
 
-fetch("../sources/skills.json")
+fetch("data/skills.json")
   .then((response) => response.json())
   .then((data) => {
     const skillsGrid = document.querySelector(".skill-experience .skills-grid");
@@ -87,9 +87,9 @@ fetch("../sources/skills.json")
   .catch((error) => console.error("Error:", error));
 
 Promise.all([
-  fetch("../sources/stats.json").then((response) => response.json()),
-  fetch("../sources/projects.json").then((response) => response.json()),
-  fetch("../sources/certificates.json").then((response) => response.json()),
+  fetch("data/stats.json").then((response) => response.json()),
+  fetch("data/projects.json").then((response) => response.json()),
+  fetch("data/certificates.json").then((response) => response.json()),
 ])
   .then(([stats, projects, certificates]) => {
     const projectsContainer = document.querySelector(".projects .cards-container");

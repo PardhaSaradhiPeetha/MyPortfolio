@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../styles/fonts.css" />
-  <link rel="stylesheet" href="../styles/style.css" />
-  <link rel="stylesheet" href="../styles/mediaqueries.css" />
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <title>Pardha Saradhi / Resume</title>
 </head>
 
@@ -20,8 +21,7 @@
 
   <main class="resume-container">
     <div class="resume-viewer" aria-label="Resume PDF">
-      <object class="resume-pdf" data="../sources/myResume.pdf#toolbar=0" type="application/pdf"
-        aria-label="Resume PDF">
+      <object class="resume-pdf" data="../docs/resume.pdf#toolbar=0" type="application/pdf" aria-label="Resume PDF">
         <p class="resume-no-preview">
           PDF preview isn’t supported in this browser. Use the Download button above.
         </p>
@@ -49,7 +49,8 @@
       <div id="form-result" aria-live="polite"></div>
     </div>
   </div>
-  <script src="../JS/resume.js"></script>
+  <script src="../js/emailjs.js"></script>
+  <script src="../js/resume.js"></script>
 </body>
 
 </html>

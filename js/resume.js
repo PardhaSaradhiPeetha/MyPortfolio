@@ -16,7 +16,7 @@ function toggle_feedback() {
 
 function download_resume() {
   const link = document.createElement("a");
-  link.href = "../sources/myResume.pdf";
+  link.href = "../docs/resume.pdf";
   link.download = "myResume.pdf";
   link.click();
 }
@@ -41,10 +41,25 @@ function check_feedback() {
     result.textContent = "Please! Enter your feedback";
     return;
   }
-  result.style.color = "#166534";
-  result.innerHTML = "Thank you!<br>Downloading my resume...";
+  if (!window.EmailJSForms) {
+    result.style.color = "#b91c1c";
+    result.textContent = "EmailJS is not ready yet. Please try again.";
+    return;
+  }
 
-  setTimeout(hideForm, 2000); //function , seconds
+  result.style.color = "#166534";
+  result.textContent = "Sending feedback...";
+
+  window.EmailJSForms.sendResumeFeedback({ name, feedback: feed })
+    .then(() => {
+      result.innerHTML = "Thank you!<br>Downloading my resume...";
+      setTimeout(hideForm, 1200);
+    })
+    .catch((error) => {
+      console.error("EmailJS resume feedback error:", error);
+      result.style.color = "#b91c1c";
+      result.textContent = "Sorry, we couldn't send your feedback right now.";
+    });
 }
 
 function hideForm() {
