@@ -1,19 +1,19 @@
 [
     {
         "id": 1,
-        "title": "Project One",
-        "description": "A web app built with React and Node.js",
-        "image": "",
-        "github": "-one",
-        "demo": ""
+        "title": "DualNote",
+        "description": "Temporary & Persistant Content Storage System",
+        "image": "assets/images/dualnote.pardhasaradhi.tech.png",
+        "github": "https://github.com/pardhasaradhi/dualnote",
+        "demo": "https://dualnote.pardhasaradhi.tech"
     },
     {
         "id": 2,
-        "title": "Project Two",
+        "title": "Api Rate Limiter",
         "description": "A mobile app built with Flutter",
-        "image": "",
-        "github": "",
-        "demo": ""
+        "image": "assets/images/api-rate-limiter.pardhasaradhi.tech.png",
+        "github": "https://github.com/pardhasaradhi/api-rate-limiter",
+        "demo": "https://api-rate-limiter.pardhasaradhi.tech"
     },
     {
         "id": 3,

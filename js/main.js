@@ -68,12 +68,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Contact form handler lives in `js/contact.js`
 });
-
-const text = document.getElementById("text-p2");
-let index = 0;
-let skills = ["MERN Stack", "Linux", "Docker", "JAVA", "Python"];
-function textChange() {
-  text.innerText = skills[index];
-  index = (index + 1) % skills.length;
-}
-setInterval(textChange, 2000);

@@ -1,19 +1,32 @@
 [
     {
-        "title":"Web Development",
-        "details":["HTML","CSS","JS"]
+        "title": "Frontend Development",
+        "icon": "assets/icons/website-generic.svg",
+        "accent": "#2563eb",
+        "details": ["HTML", "CSS", "JavaScript", "React", "Responsive UI"]
     },
     {
-        "title":"Web Development",
-        "details":["HTML","CSS","JS","s","sdad","sdsd"]
-    },{
-        "title":"Web Development",
-        "details":["HTML","CSS","JS","s","sdad","sdsd"]
-    },{
-        "title":"Web Development",
-        "details":["HTML","CSS","JS","s","sdad","sdsd"]
-    },{
-        "title":"Web Development",
-        "details":["HTML","CSS","JS","s","sdad","sdsd"]
+        "title": "Backend Development",
+        "icon": "assets/icons/bxs-experience.svg",
+        "accent": "#0f766e",
+        "details": ["Node.js", "Express.js", "REST APIs", "Authentication", "MongoDB"]
+    },
+    {
+        "title": "Programming",
+        "icon": "",
+        "accent": "#7c3aed",
+        "details": ["Java", "Python", "JavaScript", "DSA", "Problem Solving"]
+    },
+    {
+        "title": "Tools & Platforms",
+        "icon": "assets/icons/bxl-github.svg",
+        "accent": "#334155",
+        "details": ["Git", "GitHub", "Linux", "Docker", "Postman"]
+    },
+    {
+        "title": "Product Engineering",
+        "icon": "assets/icons/certificate.svg",
+        "accent": "#ea580c",
+        "details": ["Clean Code", "API Integration", "Database Design", "Debugging", "Deployment Basics"]
     }
 ]
