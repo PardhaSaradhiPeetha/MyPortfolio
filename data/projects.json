@@ -4,7 +4,7 @@
         "title": "DualNote",
         "description": "Temporary & Persistant Content Storage System",
         "image": "assets/images/dualnote.pardhasaradhi.tech.png",
-        "github": "https://github.com/pardhasaradhi/dualnote",
+        "github": "https://github.com/PardhaSaradhiPeetha/dualnote/",
         "demo": "https://dualnote.pardhasaradhi.tech"
     },
     {
@@ -12,21 +12,13 @@
         "title": "Api Rate Limiter",
         "description": "A mobile app built with Flutter",
         "image": "assets/images/api-rate-limiter.pardhasaradhi.tech.png",
-        "github": "https://github.com/pardhasaradhi/api-rate-limiter",
+        "github": "",
         "demo": "https://api-rate-limiter.pardhasaradhi.tech"
     },
     {
         "id": 3,
-        "title": "Project Three",
-        "description": "An e-commerce platform with Django",
-        "image": "",
-        "github": "",
-        "demo": ""
-    },
-    {
-        "id": 3,
-        "title": "Project Three",
-        "description": "An e-commerce platform with Django",
+        "title": "CarePulse",
+        "description": "Doctor Booking & Appointment Management System",
         "image": "",
         "github": "",
         "demo": ""
