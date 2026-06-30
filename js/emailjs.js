@@ -1,23 +1,22 @@
 function initializeEmailJSForms() {
-    const DEFAULT_CONFIG = {
-        publicKey: "YOUR_EMAILJS_PUBLIC_KEY",
-        contactServiceId: "YOUR_CONTACT_SERVICE_ID",
-        contactTemplateId: "YOUR_CONTACT_TEMPLATE_ID",
-        resumeServiceId: "YOUR_RESUME_SERVICE_ID",
-        resumeTemplateId: "YOUR_RESUME_TEMPLATE_ID",
+    const config = {
+        publicKey: "96fGY5-jsjexomExI",
+
+        contactServiceId: "service_mmeqsl8",
+        contactTemplateId: "template_ve1bqee",
+
+        resumeServiceId: "service_mmeqsl8",
+        resumeTemplateId: "template_0s3x2gk",
     };
 
-    const config = { ...DEFAULT_CONFIG, ...(window.EMAILJS_CONFIG || {}) };
-
-    function ensureEmailJSInitialized() {
-        if (!window.emailjs) {
-            throw new Error("EmailJS SDK is not loaded");
-        }
-
-        if (config.publicKey && config.publicKey !== DEFAULT_CONFIG.publicKey) {
-            window.emailjs.init(config.publicKey);
-        }
+    if (!window.emailjs) {
+        throw new Error("EmailJS SDK is not loaded");
     }
+
+    // Initialize EmailJS once
+    window.emailjs.init({
+        publicKey: config.publicKey,
+    });
 
     function buildContactPayload(formData) {
         return {
@@ -37,12 +36,6 @@ function initializeEmailJSForms() {
     }
 
     async function sendContactEmail(formData) {
-        ensureEmailJSInitialized();
-
-        if (!config.contactServiceId || !config.contactTemplateId) {
-            throw new Error("Missing EmailJS contact service/template IDs");
-        }
-
         return window.emailjs.send(
             config.contactServiceId,
             config.contactTemplateId,
@@ -51,12 +44,6 @@ function initializeEmailJSForms() {
     }
 
     async function sendResumeFeedback(formData) {
-        ensureEmailJSInitialized();
-
-        if (!config.resumeServiceId || !config.resumeTemplateId) {
-            throw new Error("Missing EmailJS resume service/template IDs");
-        }
-
         return window.emailjs.send(
             config.resumeServiceId,
             config.resumeTemplateId,
