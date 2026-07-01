@@ -4,16 +4,12 @@ function initializeEmailJSForms() {
 
         contactServiceId: "service_mmeqsl8",
         contactTemplateId: "template_ve1bqee",
-
-        resumeServiceId: "service_mmeqsl8",
-        resumeTemplateId: "template_0s3x2gk",
     };
 
     if (!window.emailjs) {
         throw new Error("EmailJS SDK is not loaded");
     }
 
-    // Initialize EmailJS once
     window.emailjs.init({
         publicKey: config.publicKey,
     });
@@ -27,14 +23,6 @@ function initializeEmailJSForms() {
         };
     }
 
-    function buildResumePayload(formData) {
-        return {
-            from_name: formData.name,
-            feedback: formData.feedback,
-            resume_url: `${window.location.origin}/docs/resume.pdf`,
-        };
-    }
-
     async function sendContactEmail(formData) {
         return window.emailjs.send(
             config.contactServiceId,
@@ -43,17 +31,8 @@ function initializeEmailJSForms() {
         );
     }
 
-    async function sendResumeFeedback(formData) {
-        return window.emailjs.send(
-            config.resumeServiceId,
-            config.resumeTemplateId,
-            buildResumePayload(formData)
-        );
-    }
-
     window.EmailJSForms = {
         sendContactEmail,
-        sendResumeFeedback,
     };
 }
 

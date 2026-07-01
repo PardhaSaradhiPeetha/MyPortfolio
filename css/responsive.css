@@ -166,6 +166,10 @@
     min-width: min(12rem, 100%);
   }
 
+  .resume-actions {
+    justify-content: center;
+  }
+
   .profile-lead {
     max-width: 36ch;
     font-size: 0.97rem;
@@ -308,18 +312,10 @@
     width: 100%;
   }
 
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
   footer {
     padding: 2.4rem 1.5rem;
   }
 
-  .resume-header {
-    padding: 14px 12px;
-  }
 }
 
 /* Card grid responsive breakpoints (4 -> 3 -> 2 -> 1) */
@@ -538,6 +534,14 @@
     flex-direction: column;
   }
 
+  .resume-actions {
+    width: 100%;
+  }
+
+  .resume-actions .btn-one {
+    flex: 1 1 auto;
+  }
+
   .section-text .title {
     font-size: 1.5rem;
   }
@@ -612,14 +616,6 @@
   .btn-reset {
     font-size: 0.9rem;
     padding: 0.65rem 1rem;
-  }
-
-  .footer-section h4 {
-    font-size: 0.9rem;
-  }
-
-  .footer-section a {
-    font-size: 0.85rem;
   }
 
 }

@@ -1,5 +1,4 @@
-const DEFAULT_PROJECT_IMAGE = "assets/images/bg1.jpeg";
-const DEFAULT_CERT_IMAGE = "assets/images/bg1.jpeg";
+const DEFAULT_CARD_IMAGE = "assets/images/bg1.jpeg";
 
 function normalizeLink(link) {
   const normalizedLink = String(link || "").trim();
@@ -118,7 +117,7 @@ function renderProjectButton(label, link, className) {
 }
 
 function renderProjectCard(project) {
-  const imageUrl = project.image || DEFAULT_PROJECT_IMAGE;
+  const imageUrl = project.image || DEFAULT_CARD_IMAGE;
   const title = project.title || "Project";
   const githubLink = normalizeLink(project.github);
   const demoLink = normalizeLink(project.demo || project.liveDemo);
@@ -147,7 +146,7 @@ function renderCertificateLink(link) {
 }
 
 function renderCertificateCard(certificate) {
-  const imageUrl = certificate.image || DEFAULT_CERT_IMAGE;
+  const imageUrl = certificate.image || DEFAULT_CARD_IMAGE;
   const title = certificate.title || "Certificate";
 
   return `

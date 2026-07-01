@@ -73,18 +73,17 @@
           <div class="skill-marquee-track">
             <span>Full Stack Developer</span>
             <span>MERN Stack</span>
-            <span>Linux</span>
-            <span>Docker</span>
+            <span>REST APIs</span>
             <span>Java</span>
             <span>Python</span>
-            <span>REST APIs</span>
             <span>Problem Solving</span>
+            <span>Linux</span>
+            <span>Docker</span>
             <span aria-hidden="true">Full Stack Developer</span>
             <span aria-hidden="true">MERN Stack</span>
             <span aria-hidden="true">Linux</span>
             <span aria-hidden="true">Docker</span>
             <span aria-hidden="true">Java</span>
-            <span aria-hidden="true">Python</span>
             <span aria-hidden="true">REST APIs</span>
             <span aria-hidden="true">Problem Solving</span>
           </div>
@@ -95,9 +94,12 @@
         </p>
 
         <div class="btn-container">
-          <button class="btn-one" onclick="window.location.href ='pages/resume.html'">
-            View Resume
-          </button>
+          <div class="resume-actions">
+            <a class="btn-one" href="docs/resume.pdf" target="_blank" rel="noopener">View Resume</a>
+            <a class="resume-download-link" href="docs/resume.pdf" download aria-label="Download resume PDF">
+              <img src="assets/icons/download.svg" alt="" aria-hidden="true" />
+            </a>
+          </div>
           <button class="btn-two" onclick="window.location.href='#contact'">Let's Connect</button>
         </div>
         <div class="social-media">
@@ -159,7 +161,6 @@
     </section>
     <!-- About Section -->
     <section class="about">
-      <!-- heading -->
       <div class="section-text" id="about">
         <p class="text-p1">Get To Know More</p>
         <h1 class="title">About Me</h1>
@@ -282,33 +283,7 @@
   </main>
 
   <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#dashboard">Dashboard</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="pages/resume.html">Resume</a></li>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#skills">Skills</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Social</h4>
-        <ul>
-          <li><a href="#contact">LinkedIn</a></li>
-          <li><a href="#contact">GitHub</a></li>
-          <li><a href="#contact">Twitter</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="cpy-right">
+    <div class="copy-right">
       Copyright &copy;
       <span id="current-year"></span>
       Pardha Saradhi. All Rights Reserved.
