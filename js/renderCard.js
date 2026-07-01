@@ -158,33 +158,64 @@ function renderCertificateCard(certificate) {
   `;
 }
 
-function bindProfileLink(elementId, url) {
-  const element = document.getElementById(elementId);
-
-  if (!element) {
-    return;
+function getCodingPlatforms(stats) {
+  if (Array.isArray(stats?.platforms)) {
+    return stats.platforms;
   }
 
-  element.setAttribute("href", normalizeLink(url));
-  element.addEventListener("click", (event) => {
-    event.preventDefault();
-    openExternal(url);
-  });
+  return Object.entries(stats || {}).map(([key, platform]) => ({
+    name: platform.name || key,
+    solved: platform.solved || 0,
+    profile: platform.profile || platform.Profile || "#",
+    icon: platform.icon || "",
+  }));
+}
+
+function renderCodingPlatform(platform) {
+  const name = platform.name || "Coding platform";
+  const solved = Number(platform.solved) || 0;
+  const profile = normalizeLink(platform.profile || platform.Profile);
+  const icon = platform.icon || "";
+  const iconMarkup = icon
+    ? `<img src="${escapeHTML(icon)}" alt="${escapeHTML(name)}" />`
+    : `<span class="stat-icon-fallback" aria-hidden="true">${escapeHTML(getSkillInitials(name))}</span>`;
+  const countMarkup = `<span class="count">${escapeHTML(solved)}</span>`;
+
+  if (!hasUsableLink(profile)) {
+    return `
+      <span class="stat-icon" aria-label="${escapeHTML(name)} problem count">
+        ${iconMarkup}
+        ${countMarkup}
+      </span>
+    `;
+  }
+
+  return `
+    <a
+      class="stat-icon"
+      href="${escapeHTML(profile)}"
+      aria-label="Open ${escapeHTML(name)} profile"
+      target="_blank"
+      rel="noopener"
+    >
+      ${iconMarkup}
+      ${countMarkup}
+    </a>
+  `;
 }
 
 function renderDashboardStats(stats, projects, certificates) {
-  const leetCodeSolved = stats?.leetcode?.solved || 0;
-  const gfgSolved = stats?.gfg?.solved || 0;
-  const totalProblemsSolved = leetCodeSolved + gfgSolved;
+  const platforms = getCodingPlatforms(stats);
+  const totalProblemsSolved = platforms.reduce(
+    (total, platform) => total + (Number(platform.solved) || 0),
+    0
+  );
+  const problemBreakdown = document.getElementById("problem-breakdown");
 
   setText("problems-solved-total", totalProblemsSolved);
-  setText("leet-count", leetCodeSolved);
-  setText("gfg-count", gfgSolved);
+  renderList(problemBreakdown, platforms, renderCodingPlatform);
   setText("projects-count", projects.length);
   setText("certifications-count", certificates.length);
-
-  bindProfileLink("leet-link", stats?.leetcode?.Profile || "#");
-  bindProfileLink("gfg-link", stats?.gfg?.Profile || "#");
 }
 
 fetchJSON("data/skills.json")

@@ -1,3 +1,14 @@
+const CORE_SKILLS = [
+  "Full Stack Developer",
+  "MERN Stack",
+  "REST APIs",
+  "Java",
+  "Python",
+  "Problem Solving",
+  "Linux",
+  "Docker",
+];
+
 window.addEventListener("load", ImgSecure);
 window.addEventListener("load", () => {
   let currentYear = new Date();
@@ -18,8 +29,41 @@ function ImgSecure() {
   });
 }
 
+function createMarqueeSkill(label, isDuplicate = false) {
+  const skill = document.createElement("span");
+  skill.textContent = label;
+
+  if (isDuplicate) {
+    skill.setAttribute("aria-hidden", "true");
+  }
+
+  return skill;
+}
+
+function renderSkillMarquee() {
+  const marqueeTrack = document.querySelector(".skill-marquee-track");
+
+  if (!marqueeTrack) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  CORE_SKILLS.forEach((skill) => {
+    fragment.appendChild(createMarqueeSkill(skill));
+  });
+
+  CORE_SKILLS.forEach((skill) => {
+    fragment.appendChild(createMarqueeSkill(skill, true));
+  });
+
+  marqueeTrack.replaceChildren(fragment);
+}
+
 // Mobile menu toggle functionality
 document.addEventListener("DOMContentLoaded", function () {
+  renderSkillMarquee();
+
   const toggleMenu = document.getElementById("toggle-menu");
   const menuLinks = document.querySelectorAll(".menu a");
   const menu = document.getElementById("menu");

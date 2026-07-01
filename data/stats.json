@@ -1,10 +1,16 @@
 {
-    "leetcode": {
-        "solved": 144,
-        "Profile": "https://leetcode.com/username"
-    },
-    "gfg": {
-        "solved": 86,
-        "Profile": "https://www.geeksforgeeks.org/user/username"
-    }
+    "platforms": [
+        {
+            "name": "LeetCode",
+            "solved": 144,
+            "profile": "https://leetcode.com/username",
+            "icon": "assets/icons/leetcode.svg"
+        },
+        {
+            "name": "GeeksforGeeks",
+            "solved": 86,
+            "profile": "https://www.geeksforgeeks.org/user/username",
+            "icon": "assets/icons/geeksforgeeks.svg"
+        }
+    ]
 }
