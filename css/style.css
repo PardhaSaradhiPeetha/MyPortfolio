@@ -1077,8 +1077,27 @@ section+section::before {
   color: white;
 }
 
+.btn-submit.is-sending {
+  background-color: #334155;
+  color: white;
+}
+
+.btn-submit.is-sent {
+  background-color: #16a34a;
+  color: white;
+  border: none;
+}
+
 .btn-submit:hover {
   background-color: #1f2937;
+}
+
+.btn-submit.is-sending:hover {
+  background-color: #334155;
+}
+
+.btn-submit.is-sent:hover {
+  background-color: #16a34a;
 }
 
 .btn-reset {
