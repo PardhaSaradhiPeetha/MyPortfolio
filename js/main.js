@@ -11,7 +11,6 @@ window.addEventListener("pageshow", () => {
 });
 
 function ImgSecure() {
-  console.log(window.innerWidth, window.outerWidth);
   document.addEventListener("contextmenu", function (event) {
     if (event.target.tagName === "IMG") {
       event.preventDefault();
@@ -66,5 +65,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Contact form handler lives in `js/contact.js`
 });

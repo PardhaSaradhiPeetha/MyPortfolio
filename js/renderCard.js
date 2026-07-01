@@ -192,13 +192,12 @@ fetchJSON("data/skills.json")
   .then((skills) => {
     const skillsGrid = document.querySelector(".skill-experience .skills-grid");
     if (!skillsGrid) {
-      console.error("Error: Skills grid container not found");
       return;
     }
 
     renderList(skillsGrid, skills, renderSkillCard);
   })
-  .catch((error) => console.error("Error:", error));
+  .catch(() => { });
 
 Promise.all([
   fetchJSON("data/stats.json"),
@@ -212,7 +211,6 @@ Promise.all([
     );
 
     if (!projectsContainer || !certificationsContainer) {
-      console.error("Error: Required DOM containers not found");
       return;
     }
 
@@ -220,4 +218,4 @@ Promise.all([
     renderList(certificationsContainer, certificates, renderCertificateCard);
     renderDashboardStats(stats, projects, certificates);
   })
-  .catch((error) => console.error("Error:", error));
+  .catch(() => { });

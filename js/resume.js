@@ -1,6 +1,5 @@
 window.addEventListener("load", ImgSecure);
 function ImgSecure() {
-  console.log(window.innerWidth);
   document.addEventListener("contextmenu", function (event) {
     if (event.target.tagName === "IMG") {
       event.preventDefault();
@@ -55,8 +54,7 @@ function check_feedback() {
       result.innerHTML = "Thank you!<br>Downloading my resume...";
       setTimeout(hideForm, 1200);
     })
-    .catch((error) => {
-      console.error("EmailJS resume feedback error:", error);
+    .catch(() => {
       result.style.color = "#b91c1c";
       result.textContent = "Sorry, we couldn't send your feedback right now.";
     });

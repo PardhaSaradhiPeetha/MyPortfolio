@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
             contactForm.reset();
             alert("Thanks! Your message was sent successfully.");
         } catch (error) {
-            console.error("EmailJS contact form error:", error);
             alert("Sorry, we couldn't send your message right now.");
         }
     });
