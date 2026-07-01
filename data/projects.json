@@ -19,8 +19,8 @@
         "id": 3,
         "title": "CarePulse",
         "description": "Doctor Booking & Appointment Management System",
-        "image": "",
-        "github": "",
-        "demo": ""
+        "image": "assets/images/carepulse.kishorkumar.app.png",
+        "github": "https://github.com/kishorpeetani/doctor-booking-app",
+        "demo": "https://carepulse.kishorkumar.app"
     }
 ]

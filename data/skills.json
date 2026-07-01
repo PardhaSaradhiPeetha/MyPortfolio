@@ -13,9 +13,9 @@
     },
     {
         "title": "Programming",
-        "icon": "",
+        "icon": "assets/icons/code.svg",
         "accent": "#7c3aed",
-        "details": ["Java", "Python", "JavaScript", "DSA", "Problem Solving"]
+        "details": ["Java", "JavaScript", "DSA", "Problem Solving"]
     },
     {
         "title": "Tools & Platforms",
