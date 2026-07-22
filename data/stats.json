@@ -2,7 +2,7 @@
     "platforms": [
         {
             "name": "LeetCode",
-            "solved": 144,
+            "solved": 148,
             "profile": "https://leetcode.com/username",
             "icon": "assets/icons/leetcode.svg"
         },
